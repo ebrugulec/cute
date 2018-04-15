@@ -1,16 +1,18 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
+  <div id="app" class="row">
+    <div v-for="list in original_lists" class="col-3">
+      {{ list.name }}
+      <hr />
+      <div v-for="(card, index) in list.cards" class="card card-body">
+        {{ card.name }}
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  }
+  props: ["original_lists"]
 }
 </script>
 

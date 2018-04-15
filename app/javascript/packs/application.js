@@ -6,5 +6,19 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
+import Vue from 'vue/dist/vue.esm'
+import App from '../app.vue'
 
-console.log('Hello World from Webpacker')
+document.addEventListener("turbolinks:load", function(){
+  var element = document.querySelector("#boards")
+  if(element != undefined) {
+    const app = new Vue({
+      el: element,
+      data: {
+        lists: JSON.parse(element.dataset.lists)
+      },
+      template: "<App :original_lists='lists' />",
+      components: { App }
+    })
+  }
+});
