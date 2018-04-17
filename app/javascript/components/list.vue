@@ -7,7 +7,7 @@
 
     <a v-if="!editing" v-on:click="startEditing">Add a card</a>
     <textarea ref="message" v-if="editing" v-model="message" class="form-control mb-1"></textarea>
-    <button v-if="editing" v-on:click="submitMessage" class="btn btn-secondary">Add</button>
+    <button v-if="editing" v-on:click="createCard" class="btn btn-secondary">Add</button>
     <a v-if="editing" v-on:click="editing=false">Cancel</a>
 
   </div>
@@ -42,14 +42,14 @@ export default {
 
       const element = evt.element
 
-      const list_index = window.store.lists.findIndex((list) => {
+      const list_index = window.store.state.lists.findIndex((list) => {
         return list.cards.find((card) => {
           return card.id === element.id
         })
       })
 
       var data = {
-        list_id: window.store.lists[list_index].id,
+        list_id: window.store.state.lists[list_index].id,
         position: evt.newIndex + 1
       }
 
@@ -64,7 +64,7 @@ export default {
          }
       })
     },
-    submitMessage: function() {
+    createCard: function() {
       var data = {
         list_id: this.list.id,
         name: this.message
@@ -79,8 +79,7 @@ export default {
             'Content-Type': 'application/json'
          },
         success: (data) => {
-          const index = window.store.lists.findIndex(item => item.id == this.list.id);
-          window.store.lists[index].cards.push(data);
+          // this.$store.commit('addCard', data)
           this.message = undefined;
           this.$nextTick(() => { this.$refs.message.focus() })
         },

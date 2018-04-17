@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'lists#index'
+
+  mount ActionCable.server, at: '/cable'
 end
