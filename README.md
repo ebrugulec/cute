@@ -1,24 +1,47 @@
-# README
+# Cute :relaxed:
+---
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project management application like Trello. 
 
-Things you may want to cover:
+This project has used **Ruby on Rails** for the back-end, **VueJs** for the front-end and for the database **PostgreSQL**
 
-* Ruby version
+### Installiation
+---
+> for Linux
+- we need to database. Install PostgreSQL last version with this command:
+```shell
+  $ sudo apt-get install postgresql-9.4 postgresql-client-9.4
+```
 
-* System dependencies
+- To check that the PostgreSQL server was correctly installed and is running, you can use the command ps:
+```shell
+$ ps -ef | grep postgre
+```
 
-* Configuration
+- Now we can install **cute** application. You can clone this repo with command:
+```shell
+$ git clone git@github.com:ebrugulec/cute.git
+```
 
-* Database creation
+- we need to install the gems required for this application:
+```shell
+$ cd cute
+$ bundle
+```
 
-* Database initialization
+- We must setup database:
+```shell
+$ rake db:create
+$ rake db:migrate
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Now, We can run application.
+> But you have two options here. You can start Rails and WebPack server separately.
+```shell
+$ rails server
+$ ./bin/webpack-dev-server
+```
+> or You can start both with foreman. <a href="https://github.com/ddollar/foreman" target="_blank">**Foreman**</a> has to be installed on your computer.
+```shell
+$ foreman start -f Procfile.dev -p 3000
+```
