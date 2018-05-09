@@ -3,6 +3,8 @@
 
 Project management application like Trello. 
 
+![Cute GIF](https://github.com/ebrugulec/cute/blob/master/app/assets/images/cute.gif)
+
 This project has used **Ruby on Rails** for the back-end, **VueJs** for the front-end and for the database **PostgreSQL**
 
 ### Installiation
