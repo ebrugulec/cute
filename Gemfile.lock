@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/excid3/devise-bootstrapped.git
-  revision: a963d93052ce0069d050e4615fb06e95dc30ac2b
-  branch: bootstrap4
-  specs:
-    devise-bootstrapped (0.2.0)
-
-GIT
   remote: https://github.com/mdeering/gravatar_image_tag.git
   revision: c02351f7d6649e2346394e33164a7154e671ec19
   specs:
@@ -104,6 +97,7 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrapped (0.1.1)
     devise_masquerade (0.6.1)
       devise (>= 2.1.0)
       railties (>= 3.0)
@@ -303,7 +297,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise (~> 4.4.0)
-  devise-bootstrapped!
+  devise-bootstrapped
   devise_masquerade (~> 0.6.0)
   font-awesome-sass (~> 4.7)
   foreman
